@@ -1,0 +1,218 @@
+.haut {
+	display: flex;
+	border-radius: 10px;
+	background-color: DarkGray;
+	box-shadow: 10px 10px;
+	width: 1125px;
+	height: 115px;
+}
+
+.middle {
+	display: flex;
+	height: 500px;
+	width: 1125px;
+	border-radius: 10px;
+}
+
+.middlepiece {
+	position: relative;
+	top: 0;
+	left: 0;
+	margin-right: auto;
+	margin-left: auto;
+	width: 775px;
+	height: 500px;
+	border-radius: 10px;
+	background-color: DarkGray;
+	box-shadow: 10px 10px;
+}
+
+.sides {
+	width: 115px;
+	height: 375px;
+	position: relative;
+	top: 0;
+	left: 0;
+	border-radius: 10px;
+	background-color: DarkGray;
+	box-shadow: 10px 10px;
+}
+
+.close-reload {
+	position: relative;
+	top: 0;
+	left: 0;
+	margin-right: 6px;
+	margin-left: 6px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 20px;
+	height: 115px;
+}
+
+.bricks {
+	margin-top: 5px;
+	position: relative;
+	width: 120px;
+	top: 150px;
+	left: 15px;
+}
+
+.dialogue {
+	background-color: LightGreen;
+	width: 450px;
+	height: 150px;
+	margin-bottom: 50px; 
+	position: absolute;
+	top: 575px;
+	left: 100px;
+	border-radius: 10px;
+	box-shadow: 10px 10px;
+}
+
+#left {
+	margin-left: 32px;
+	margin-right: auto;
+}
+
+#right {
+	margin-right: 32px;	
+	margin-left: auto;
+}
+
+#day_of_the_42 {
+	margin-left: 0px;
+	margin-right: auto;
+	height: 115px;
+	width: 375px;
+	border-radius: 10px;
+}
+
+#loupe {
+	margin-right: 6px;
+	margin-left: auto;
+	width: 200px;
+	height: 115px;
+	margin-top: 16px; 
+}
+
+#reload {
+	position: relative;
+	top: 6px;
+	left: 0;
+	height: 15px;
+	width: 15px;
+}
+
+#close {
+	position: absolute;
+	top: 90px;
+	left: 0;
+	height: 15px;
+	width: 15px;
+}
+
+#arrow {
+	margin-top: 5px;
+	position: absolute;
+	top: 0;
+	left: 30px;
+}
+
+#main {
+	height: 70px;
+	margin-top: 5px;
+	position: absolute;
+	top: 75px;
+	left: 30px;
+}
+
+#oeil {
+	border: solid Red 5px;
+	margin-top: 5px;
+	position: absolute;
+	top: 150px;
+	left: 30px;
+}
+
+#outil {
+	margin-top: 5px;
+	position: absolute;
+	top: 225px;
+	left: 30px;
+}
+
+#chat-icon {
+	margin-top: 5px;
+	position: absolute;
+	top: 300px;
+	left: 30px;
+}
+
+#book {
+	margin-top: 5px;
+	position: absolute;
+	top: 0;
+	left: 30px;
+}
+
+#towel {
+	margin-top: 5px;
+	position: absolute;
+	top: 75px;
+	left: 30px;
+}
+
+#brick1 {
+	position: absolute;
+	left: 0;
+	margin-left: auto;
+	margin-right: 0px;
+	height: 60px;
+}
+
+#brick2 {
+	position: absolute;
+	left: 45px;
+	margin-left: 0px;
+	margin-right: auto;
+	height: 60px;
+}
+
+#cluster {
+	position: absolute;
+	top: 12px;
+	left: 12px;
+	width: 750px;
+	height: 475px;
+}
+
+#question {
+	margin-left: 6px;
+}
+
+#answer {
+	position: absolute;
+	background-color: White;
+	border: solid DarkGray 2px;
+	height: 20px;
+	width: 300px;
+	margin-left: 10px;
+	top: 92px;
+}
+
+#repondre {
+	position: absolute;
+	background-color: LightGray;
+	border: solid DarkGray 2px;
+	height: 20px;
+	width: 75px;
+	margin-left: 5px;
+	margin-right: auto;
+	top: 92px;
+	left: 315px;
+}
+
+body {
+	background-color: Gray;
+}
