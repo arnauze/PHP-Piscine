@@ -1,0 +1,30 @@
+body {
+	background-color: Red;
+	height: 100%;
+}
+
+html{
+	height: 100%;
+}
+
+.main-frame {
+	margin-top: 100px;
+	background-color: White;
+	height: 750px;
+	width:500px;
+}
+
+#box {
+	position: absolute;
+	background-color: Gray;
+	margin-top: 0px;
+	height: 300px;
+	width: 500px;
+}
+
+#text {
+	margin-top: 25px;
+	margin-bottom: auto;
+	height: 50px;
+	width: 400px;
+}
