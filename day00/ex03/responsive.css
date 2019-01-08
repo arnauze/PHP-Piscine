@@ -1,0 +1,22 @@
+body {background-color: LightGray}
+#perso {border: 1px solid black;}
+#top-left {text-align: top left;}
+td {
+    width: 5%;
+    height: 50%;
+}
+td.noble-gas {background-color: Violet}
+td.transition-metal {background-color: Beige}
+td.alakli {background-color: Yellow}
+td.alkaline {background-color: Orange}
+td.post {background-color: Aqua}
+td.metalloids {background-color: Chocolate}
+td.other {background-color: Crimson}
+td.halogens {background-color: DarkGray}
+td.lanthanoids {background-color: DarkKhaki}
+td.actinoids {background-color: DarkMagenta}
+h2 {text-align: center;}
+b {font-size: 2vw;}
+p {font-size: 1vw;}
+p.mass {text-align: left;}
+p.number {text-align: right;}
