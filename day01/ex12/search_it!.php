@@ -4,7 +4,8 @@ if ($argc > 2)
 {
 	$i = 2;
 	$hash = array();
-	while ($argv[$i] && ($i < count($argv)))
+	$save = "";
+	while ($i < count($argv))
 	{
 		$ex = explode(':', $argv[$i]);
 		$hash[$ex[0]] = $ex[1];

@@ -7,16 +7,18 @@ html{
 	height: 100%;
 }
 
-.top-bar {
+nav {
 	margin-top: 10px;
 	background-color: DarkGray;
-	height: 50px;
-	width: 100%;
+	position: absolute;
+	height: 5vw;
+	width: 95vw;
 	box-shadow: 5px 5px;
 }
 
 nav ul {
 	float: left;
+	width: 80vw;
 }
 
 nav p {
@@ -33,20 +35,21 @@ a {
 
 nav ul li {
 	float: left;
+	width: 10vw;
 	list-style: none;
 	position: relative;
 }
 
 nav ul li a {
 	font-family: arial;
-	font-size: 18px;
+	font-size: 1.8vw;
 	display: block;
-	padding-right: 180px;
+	position: relative;
 }
 
 nav ul li ul {
 	display: none;
-	position: absolute;
+	position: relative;
 	background-color: DarkGray;
 	border-radius: 0px 0px 4px 4px;
 	width: 250px;
@@ -59,15 +62,21 @@ nav ul li:hover ul {
 }
 
 nav ul li ul li {
-	width: 180px;
+	width: 18vw;
 	border-radius: 4px;
+	position: relative;
 }
 
 
 nav ul li ul li a {
 	padding-bottom: 20px;
+	position: relative;
 }
 
 nav ul li ul li a:hover {
 	background-color: Gray;
+}
+
+.top-bar {
+
 }
