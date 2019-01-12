@@ -19,7 +19,7 @@ if ($passwd != "" && $_POST['submit'] == "OK")
 			foreach ($x as $key => $value)
 			{
 				if ($value == $login)
-					ft_exit("ERROR");
+					echo "ERROR\n";
 			}
 		}
 		$hashed = hash("whirlpool", $passwd);
