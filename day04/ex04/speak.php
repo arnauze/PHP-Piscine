@@ -1,12 +1,18 @@
 <?php
+	include('auth.php');
+
 	session_start();
 	date_default_timezone_set("America/Los_Angeles");
+
 	function ft_get_chat()
 	{
+		$fd = fopen("../private/chat", "r+");
+		flock($fd, LOCK_EX);
 		if (($data_serialized = file_get_contents("../private/chat")) != "")
 			return (unserialize($data_serialized));
 		return "";
 	}
+
 	if (($msg = $_POST['msg']) != "")
 	{
 		if (($chat = ft_get_chat()) != "")
@@ -17,6 +23,7 @@
 		else
 			$chat = array(array("time" => date("G:i", time()), "login" => $_SESSION['loggued_in_user'], "msg" => $msg));
 		file_put_contents("../private/chat", serialize($chat));
+		fclose($fd);
 	}
 ?>
 <!DOCTYPE html>

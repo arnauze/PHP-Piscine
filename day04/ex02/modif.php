@@ -48,8 +48,8 @@ function ft_is_right_password($login, $oldpw)
 
 if (!ft_is_account(($login = $_POST['login'])) ||
 	!ft_is_right_password($login, ($oldpw = $_POST['oldpw'])) ||
-	($newpw = $_POST['newpw']) == "")
-	ft_exit("ERROR\n");
+	(($newpw = $_POST['newpw']) == "") || $_POST['submit'] != "OK")
+	echo("ERROR\n");
 else
 {
 	$found = false;
