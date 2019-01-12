@@ -1,16 +1,17 @@
 <?php
 
-function ft_exit($str)
-{
-	echo "$str\n";
-	exit();
-}
+// function ft_exit($str)
+// {
+// 	echo "$str\n";
+// 	exit();
+// }
 
 $login = $_POST['login'];
 $passwd = $_POST['passwd'];
 if ($passwd != "" && $_POST['submit'] == "OK")
 {
-	if (($file_serialized = file_get_contents("../private/passwd")) != "")
+	$file_serialized = file_get_contents("../private/passwd");
+	if ($file_serialized != "")
 	{
 		$file_unserialized = unserialize($file_serialized);
 		foreach ($file_unserialized as $x)
@@ -26,6 +27,7 @@ if ($passwd != "" && $_POST['submit'] == "OK")
 		$data_serialized = serialize($file_unserialized);
 		file_put_contents("../private/passwd", $data_serialized);
 		echo "OK\n";
+		header("Location: index.html");
 	}
 	else
 	{
@@ -34,15 +36,16 @@ if ($passwd != "" && $_POST['submit'] == "OK")
 			array(
 				"login" => $login,
 				"passwd" => $hashed_password
-			)
-		);
+			));
 		$data_serialized = serialize($data);
 		file_put_contents("../private/passwd", $data_serialized);
 		echo "OK\n";
-		header("Location: http://localhost:8100/day04/ex04/index.html")
+		header("Location: index.html");
 	}
 }
 else
 	echo "ERROR\n";
+header("Location: index.html");
+exit();
 
 ?>

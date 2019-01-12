@@ -49,7 +49,7 @@ function ft_is_right_password($login, $oldpw)
 if (!ft_is_account(($login = $_POST['login'])) ||
 	!ft_is_right_password($login, ($oldpw = $_POST['oldpw'])) ||
 	($newpw = $_POST['newpw']) == "")
-	ft_exit("ERROR\n");
+	echo("ERROR\n");
 else
 {
 	$found = false;
@@ -67,4 +67,5 @@ else
 	file_put_contents("../private/passwd", $data);
 	echo("OK\n");
 }
+header("Location: index.html");
 ?>
