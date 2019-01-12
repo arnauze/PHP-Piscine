@@ -18,7 +18,7 @@ if ($passwd != "" && $_POST['submit'] == "OK")
 			foreach ($x as $key => $value)
 			{
 				if ($value == $login)
-					ft_exit("ERROR\n");
+					ft_exit("ERROR");
 			}
 		}
 		$hashed = hash("whirlpool", $passwd);
@@ -33,7 +33,7 @@ if ($passwd != "" && $_POST['submit'] == "OK")
 		$data = array(
 			array(
 				"login" => $login,
-				"passwd" => $hashed_password;
+				"passwd" => $hashed_password
 			)
 		);
 		$data_serialized = serialize($data);
@@ -43,4 +43,5 @@ if ($passwd != "" && $_POST['submit'] == "OK")
 }
 else
 	echo "ERROR\n";
+
 ?>
