@@ -1,5 +1,5 @@
 <?php
-$host = "localhost:8800";
+$host = "localhost";
 $user = "amagnan";
 $pw = "password";
 $db = "rush00";
@@ -26,23 +26,51 @@ $conn = mysqli_connect($host, $user, $pw, $db);
 		<center>
 			<div class="article">
 				<?php
-				$result = mysqli_query($conn, "SELECT * FROM `items` WHERE item_id=1");
-				foreach ($result as $key => $value)
-				{
-					echo "<p id='article_name'>".$value['name']."</p><br>";
-					echo "<p id='article_info'>".$value['price']."<br>";
-					echo $value['ingredients']."</p><br>";
-				}
+					$result = mysqli_query($conn, "SELECT * FROM `items` WHERE item_id=1");
+					foreach ($result as $key => $value)
+					{
+						echo "<p id='article_name'>".$value['name']."</p><br>";
+						echo "<p id='article_price'>".$value['price']."</p><br>";
+						echo "<p id='article_info'>".$value['ingredients']."</p><br>";
+						echo "<img src='".$value['url']."' id='article_photo'>";
+					}
 				?>
 			</div><br>
 			<div class="article">
-			
+				<?php
+					$result = mysqli_query($conn, "SELECT * FROM `items` WHERE item_id=16");
+					foreach ($result as $key => $value)
+					{
+						echo "<p id='article_name'>".$value['name']."</p><br>";
+						echo "<p id='article_price'>".$value['price']."</p><br>";
+						echo "<p id='article_info'>".$value['ingredients']."</p><br>";
+						echo "<img src='".$value['url']."' id='article_photo'>";
+					}
+				?>
 			</div><br>
 			<div class="article">
-			
+				<?php
+					$result = mysqli_query($conn, "SELECT * FROM `items` WHERE item_id=11");
+					foreach ($result as $key => $value)
+					{
+						echo "<p id='article_name'>".$value['name']."</p><br>";
+						echo "<p id='article_price'>".$value['price']."</p><br>";
+						echo "<p id='article_info'>".$value['ingredients']."</p><br>";
+						echo "<img src='".$value['url']."' id='article_photo'>";
+					}
+				?>
 			</div><br>
 			<div class="article">
-			
+				<?php
+					$result = mysqli_query($conn, "SELECT * FROM `items` WHERE item_id=6");
+					foreach ($result as $key => $value)
+					{
+						echo "<p id='article_name'>".$value['name']."</p><br>";
+						echo "<p id='article_price'>".$value['price']."</p><br>";
+						echo "<p id='article_info'>".$value['ingredients']."</p><br>";
+						echo "<img src='".$value['url']."' id='article_photo'>";
+					}
+				?>
 			</div><br>
 		</center>
 	</div>

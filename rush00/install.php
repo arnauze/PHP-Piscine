@@ -24,7 +24,7 @@
 <body>
 	<center>
 		<?php
-			$host = "localhost:8800";
+			$host = "localhost";
 			$user = "amagnan";
 			$pw = "password";
 			$db = "rush00";
@@ -54,7 +54,8 @@
 					`name` VARCHAR(100) NOT NULL,
 					`price` INT NOT NULL,
 					`ingredients` VARCHAR(500) NOT NULL,
-					`type` VARCHAR(10) NOT NULL
+					`type` VARCHAR(10) NOT NULL,
+					`url` VARCHAR(50) NOT NULL
 					) AUTO_INCREMENT=1");
 
 			if (!$ret)
@@ -86,29 +87,29 @@
 			else
 				echo "<h2 id=\"fifth\">CREATED USER TABLE!</h2><br>";
 
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (1, 'Le jambon beurre',1,'pain, jambon, beurre','Sandwich')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (2, 'Le charcut',1,'pain, jambon cru, tomate, beurre, salade','Sandwich')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (3, 'Le tomate mozza',1,'pain, tomate, mozzarella, salade','Sandwich')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (4,'Le chèvre miel',1,'pain, tomate, fromage de chèvre, salade','Sandwich')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (5,'Le poulet qui fait zizir',1,'pain, poulet, tomate, salade, secret sauce','Sandwich')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (1, 'Le jambon beurre',1,'pain, jambon, beurre','Sandwich', 'img/sandwich/le_jambon_beurre.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (2, 'Le charcut',1,'pain, jambon cru, tomate, beurre, salade','Sandwich', 'img/sandwich/le_jambon_cru.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (3, 'Le tomate mozza',1,'pain, tomate, mozzarella, salade','Sandwich', 'img/sandwich/le_tomate_mozza.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (4,'Le chèvre miel',1,'pain, tomate, fromage de chèvre, salade','Sandwich', 'img/sandwich/le_chevre_miel.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (5,'Le poulet qui fait zizir',1,'pain, poulet, tomate, salade, secret sauce','Sandwich', 'img/sandwich/le_poulet_qui_fait_zizir.jpeg')");
 
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (6,'La viennoise au chocolat',1,'pain, chocolat','Dessert')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (7,'Le palmier géant',1,'DES TRUCS','Dessert')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (8,'Le fameux éclair au chocolat',1,'DES TRUCS','Dessert')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (9,'Le croissant',1,'DES TRUCS','Dessert')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (10, 'Le pain au chocolat',1,'pain, chocolat','Dessert')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (6,'La viennoise au chocolat',1,'pain, chocolat','Dessert', 'img/dessert/la_viennoise_au_chocolat.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (7,'Le palmier géant',1,'DES TRUCS','Dessert', 'img/dessert/le_plamier_geant.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (8,'Le fameux éclair au chocolat',1,'DES TRUCS','Dessert', 'img/dessert/eclair_au_chocolat.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (9,'Le croissant',1,'DES TRUCS','Dessert', 'img/dessert/croissant.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (10, 'Le pain au chocolat',1,'pain, chocolat','Dessert', 'img/dessert/pain_au_chocolat.jpeg')");
 
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (11,'Coca Cola',1,'eau, autres trucs','Boisson')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (12,'Iced tea',1,'eau, autres trucs','Boisson')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (13,'Fanta',1,'eau, autres trucs','Boisson')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (14,'Sprite',1,'eau, autres trucs','Boisson')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (15,'Dr Pepper',1,'eau, autres trucs','Boisson')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (11,'Coca Cola',1,'eau, autres trucs','Boisson', 'img/boisson/coca_cola.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (12,'Iced tea',1,'eau, autres trucs','Boisson', 'img/boisson/Ice_tea.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (13,'Fanta',1,'eau, autres trucs','Boisson', 'img/boisson/fanta.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (14,'Sprite',1,'eau, autres trucs','Boisson', 'img/boisson/sprite.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (15,'Dr Pepper',1,'eau, autres trucs','Boisson', 'img/boisson/dr_pepper.jpeg')");
 
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (16,'La chèvre miel',1,'salade, fromage de chèvre, tomate, toast','Salade')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (17,'La niçoise',1,'Thon, oeuf, tomate, salade, haricot vert, oignon ,poivron vert','Salade')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (18,'La jambon cru',1,'Jambon cru, salade, tomate, huile d\'olive','Salade')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (19,'La champi',1,'Champignon de paris, salade, huile d\'olive, tomate','Salade')");
-			$ret = mysqli_query($conn, "INSERT INTO items VALUES (20,'La caesar',1,'Poulet, crouton, salade, tomate, parmesan, huile d\'olive','Salade')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (16,'La chèvre miel',1,'salade, fromage de chèvre, tomate, toast','Salade', 'img/salade/la_chevre_miel.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (17,'La niçoise',1,'Thon, oeuf, tomate, salade, haricot vert, oignon ,poivron vert','Salade', 'img/salade/salade_nicoise.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (18,'La jambon cru',1,'Jambon cru, salade, tomate, huile d\'olive','Salade', 'img/salade/salade_jambon_cru.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (19,'La champi',1,'Champignon de paris, salade, huile d\'olive, tomate','Salade', 'img/salade/salade_champi.jpeg')");
+			$ret = mysqli_query($conn, "INSERT INTO items VALUES (20,'La caesar',1,'Poulet, crouton, salade, tomate, parmesan, huile d\'olive','Salade', 'img/salade/salade_caesar.jpeg')");
 
 			if (!$ret)
 				die("Couldn't insert an item<br>");

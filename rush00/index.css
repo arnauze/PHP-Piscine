@@ -47,3 +47,17 @@
 	top: 9vw;
 	right:2px;
 }
+
+#article_price {
+	position: absolute;
+	top: 9vw;
+	right:20vw;
+}
+
+#article_photo {
+	position: absolute;
+	width: 325px;
+	height: 200px;
+	left: 2vw;
+	top: 2vw;
+}
