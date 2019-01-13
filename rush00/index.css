@@ -1,0 +1,49 @@
+#top_bar {
+	margin-top: 10px;
+	width: 97vw;
+	height: 7vw;
+	background-color: DarkSlateGray; 
+}
+
+#middle {
+	position: relative;
+	width: 97vw;
+	height: 85vw;
+}
+
+#left_bar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100vw;
+	width: 15vw;
+	background-color: SlateGray;
+}
+
+#right_bar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 100vw;
+	width: 15vw;
+	background-color: SlateGray;	
+}
+
+.article {
+	position: relative;
+	width: 67vw;
+	height: 18vw;
+	background-color: DarkGray;
+}
+
+#article_name {
+	position: absolute;
+	top: 0;
+	left:30vw;
+}
+
+#article_info {
+	position: absolute;
+	top: 9vw;
+	right:2px;
+}
