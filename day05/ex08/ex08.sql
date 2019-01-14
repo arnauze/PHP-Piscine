@@ -1,1 +1,4 @@
-SELECT last_name, first_name, DATE(birthdate) AS birthdate FROM user_card WHERE birthdate LIKE '1989%' ORDER BY last_name;
+SELECT (first_name, last_name, DATE(birthdate)) AS 'birthdate'
+FROM user_card
+WHERE YEAR (birthdate) = 1978
+ORDER BY last_name;

@@ -19,7 +19,7 @@
 --
 -- Table structure for table `subscription`
 --
-
+USE day05;
 DROP TABLE IF EXISTS `subscription`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
