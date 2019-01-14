@@ -1,10 +1,12 @@
 <?php
-$host = "localhost";
-$user = "amagnan";
-$pw = "password";
+$host = "localhost:8800";
+$user = "root";
+$pw = "root";
 $db = "rush00";
 
 $conn = mysqli_connect($host, $user, $pw, $db);
+session_start();
+$_SESSION['filter'] = $_POST['submit'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,64 +16,36 @@ $conn = mysqli_connect($host, $user, $pw, $db);
 </head>
 <body>
 	<div id="top_bar">
-		
+		<center><p id="title">ACHETE_TA_BOUFFE.COM</p></center>
 	</div>
 	<div id="middle">
 		<div id="left_bar">
-			
+			<form method="POST" name="refresh" action="index.php">
+				<ul>
+					<li style="list-style-type: none; margin-top: 0;"><input type="submit" name="submit" value="Sandwich" style="width: 8vw;"></li>
+					<li style="list-style-type: none; margin-top: 5vw;"><input type="submit" name="submit" value="Salade" style="width: 8vw;"></li>
+					<li style="list-style-type: none; margin-top: 5vw;"><input type="submit" name="submit" value="Dessert" style="width: 8vw;"></li>
+					<li style="list-style-type: none; margin-top: 5vw;"><input type="submit" name="submit" value="Boisson" style="width: 8vw;"></li>
+				</ul>
+			</form>
 		</div>
 		<div id="right_bar">
-			
+			<center>
+				<div class="iframe-container">
+					<?php
+					if ($_SESSION['loggued_in_user'] == '')
+						echo "<iframe src='login.php'></iframe>";
+					else
+						echo "<iframe src='loggued_in.php'></iframe>";
+					?>
+				</div>
+				<div class="iframe-container" style="height: 50vw;">
+					<iframe src="basket.php"></iframe>
+				</div>
+			</center>
 		</div>
 		<center>
-			<div class="article">
-				<?php
-					$result = mysqli_query($conn, "SELECT * FROM `items` WHERE item_id=1");
-					foreach ($result as $key => $value)
-					{
-						echo "<p id='article_name'>".$value['name']."</p><br>";
-						echo "<p id='article_price'>".$value['price']."</p><br>";
-						echo "<p id='article_info'>".$value['ingredients']."</p><br>";
-						echo "<img src='".$value['url']."' id='article_photo'>";
-					}
-				?>
-			</div><br>
-			<div class="article">
-				<?php
-					$result = mysqli_query($conn, "SELECT * FROM `items` WHERE item_id=16");
-					foreach ($result as $key => $value)
-					{
-						echo "<p id='article_name'>".$value['name']."</p><br>";
-						echo "<p id='article_price'>".$value['price']."</p><br>";
-						echo "<p id='article_info'>".$value['ingredients']."</p><br>";
-						echo "<img src='".$value['url']."' id='article_photo'>";
-					}
-				?>
-			</div><br>
-			<div class="article">
-				<?php
-					$result = mysqli_query($conn, "SELECT * FROM `items` WHERE item_id=11");
-					foreach ($result as $key => $value)
-					{
-						echo "<p id='article_name'>".$value['name']."</p><br>";
-						echo "<p id='article_price'>".$value['price']."</p><br>";
-						echo "<p id='article_info'>".$value['ingredients']."</p><br>";
-						echo "<img src='".$value['url']."' id='article_photo'>";
-					}
-				?>
-			</div><br>
-			<div class="article">
-				<?php
-					$result = mysqli_query($conn, "SELECT * FROM `items` WHERE item_id=6");
-					foreach ($result as $key => $value)
-					{
-						echo "<p id='article_name'>".$value['name']."</p><br>";
-						echo "<p id='article_price'>".$value['price']."</p><br>";
-						echo "<p id='article_info'>".$value['ingredients']."</p><br>";
-						echo "<img src='".$value['url']."' id='article_photo'>";
-					}
-				?>
-			</div><br>
+			<iframe src="articles.php" id="middle-middle" name="articles"></iframe>
 		</center>
 	</div>
 </body>

@@ -3,12 +3,21 @@
 	width: 97vw;
 	height: 7vw;
 	background-color: DarkSlateGray; 
+	position: relative;
 }
 
 #middle {
 	position: relative;
 	width: 97vw;
-	height: 85vw;
+	height: 100vw;
+	background-color: DarkGray;
+}
+
+#middle-middle {
+	position: relative;
+	width: 65vw;
+	height: 100vw;
+	background-color: DarkGray;
 }
 
 #left_bar {
@@ -29,35 +38,38 @@
 	background-color: SlateGray;	
 }
 
-.article {
+.iframe-container {
+	overflow: hidden;
+	padding-top: 56.25%;
 	position: relative;
-	width: 67vw;
-	height: 18vw;
-	background-color: DarkGray;
+	width: 15vw;
+	height: 8vw;
 }
 
-#article_name {
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}
+
+#left_bar li {
+	padding-top: 5vw;
+}
+
+#left_bar li button {
+	width: 10vw;
+	height: 2vw;
+	background-color: DarkSlateGray;
+	border-color: black;
+	color: White;
+}
+
+#title {
 	position: absolute;
+	font-size: 2vw;
 	top: 0;
-	left:30vw;
-}
-
-#article_info {
-	position: absolute;
-	top: 9vw;
-	right:2px;
-}
-
-#article_price {
-	position: absolute;
-	top: 9vw;
-	right:20vw;
-}
-
-#article_photo {
-	position: absolute;
-	width: 325px;
-	height: 200px;
-	left: 2vw;
-	top: 2vw;
+	left: 40vw;
 }
