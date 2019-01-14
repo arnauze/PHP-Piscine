@@ -1,0 +1,1 @@
+SELECT COUNT(duration) AS 'nb_short-films' WHERE duration <= 42;

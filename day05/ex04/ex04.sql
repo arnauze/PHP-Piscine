@@ -1,0 +1,1 @@
+UPDATE `other` SET `other`.`creation_date` = DATE_ADD(`other`.`creation_date`, INTERVAL 20 YEAR) WHERE `other`.`id` > '5';
