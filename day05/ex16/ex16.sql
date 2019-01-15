@@ -3,5 +3,6 @@
 -- (December 24th every year).
 SELECT (COUNT(*)) AS movies
 FROM member_history
+INNER JOIN member ON member_history.id_member = member.id_member
 WHERE DATE(`date`) > '2006-10-30' AND DATE(`date`) < '2007-07-27'
 OR MONTH(`date`) = 12 AND DAY(`date`) = 24;
