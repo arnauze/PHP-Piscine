@@ -189,6 +189,7 @@ class Matrix {
 
 	public function mult( Matrix $rhs ) {
 		$tmp = array();
+		$p = self::$verbose;
 		for ($i = 0; $i < 16; $i += 4) {
 			for ($j = 0; $j < 4; $j++) {
 				$tmp[$i + $j] = 0;
@@ -198,7 +199,12 @@ class Matrix {
 				$tmp[$i + $j] += $this->_matrix[$i + 3] * $rhs->_matrix[$j + 12];
 			}
 		}
-		return new Matrix(array('preset' => Matrix::IDENTITY, 'matrix' => $tmp));
+		if ($p)
+			self::$verbose = false;
+		$new = new Matrix(array('preset' => Matrix::IDENTITY, 'matrix' => $tmp));
+		if ($p)
+			self::$verbose = true;
+		return $new;
 	}
 
 	public function transformVertex( Vertex $vtx ) {
