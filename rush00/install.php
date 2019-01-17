@@ -24,7 +24,7 @@
 <body>
 	<center>
 		<?php
-			$host = "localhost:8800";
+			$host = "localhost";
 			$user = "root";
 			$pw = "root";
 			$db = "rush00";

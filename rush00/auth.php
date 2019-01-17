@@ -3,7 +3,7 @@ session_start();
 
 function db_connect()
 {
-	$host = "localhost:8800";
+	$host = "localhost";
 	$user = "root";
 	$pw = "root";
 	$db = "rush00";
