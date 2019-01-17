@@ -16,7 +16,8 @@ class Vector {
 		else
 		{
 			if (self::$verbose)
-				die("Arguments 'dest' is missing or not of type Vertex.\n");
+				print("Arguments 'dest' is missing or not of type Vertex.\n");
+			exit();
 		}
 		if (array_key_exists('orig', $kwargs) && $kwargs['orig'] instanceof Vertex)
 			$origin = $kwargs['orig'];

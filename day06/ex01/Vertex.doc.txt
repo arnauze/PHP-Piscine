@@ -5,4 +5,5 @@ Only the values x, y and z are required.
 By default, 'w' is set to 1.0 and color to a White color (rgb[255, 255, 255])
 
 You can set and get all 5 values by calling setVariablesName (ex: setX or setY ...) and getVariablesName
+
 ---------------------------------------------------------------------- Vertex ->
