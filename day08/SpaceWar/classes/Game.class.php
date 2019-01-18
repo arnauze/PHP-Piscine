@@ -7,8 +7,8 @@ require_once('Scout.class.php');
 require_once('Spaceship.class.php');
 require_once('Weapon.class.php');
 
-define("WIDTH", 75);
-define("HEIGHT", 50);
+define("WIDTH", 150);
+define("HEIGHT", 100);
 
 class Game {
 
@@ -122,17 +122,17 @@ class Game {
 
 	function startGame() {
 		$this->createMap(HEIGHT, WIDTH);
-		$r1_x = rand(1, 10);
+		$r1_x = rand(3, WIDTH / 2);
 		$r1_y = rand(1, 10);
-		while (($r2_x = rand(1, 10)) == $r1_x)
+		while (($r2_x = rand(10, WIDTH / 2)) == $r1_x)
 			continue;
 		while (($r2_y = rand(1, 10)) == $r1_y)
 			continue;
-		$r3_x = rand(WIDTH - 18, WIDTH - 8);
-		$r3_y = rand(HEIGHT - 10, HEIGHT);
-		while (($r4_x = rand(WIDTH - 18, WIDTH - 8)) == $r3_x)
+		$r3_x = rand(WIDTH / 2, WIDTH - 3);
+		$r3_y = rand(HEIGHT - 11, HEIGHT - 1);
+		while (($r4_x = rand(WIDTH / 2, WIDTH - 10)) == $r3_x)
 			continue;
-		while (($r4_y = rand(HEIGHT - 10, HEIGHT)) == $r3_y)
+		while (($r4_y = rand(HEIGHT - 11, HEIGHT - 1)) == $r3_y)
 			continue;
 		$coord_v1 = array(array('x' => $r1_x, 'y' => $r1_y) ,array('x' => $r1_x + 1, 'y' => $r1_y));
 		$coord_v2 = array(array('x' => $r2_x, 'y' => $r2_y) ,array('x' => $r2_x + 1, 'y' => $r2_y), array('x' => $r2_x + 2, 'y' => $r2_y), array('x' => $r2_x + 3, 'y' => $r2_y), array('x' => $r2_x + 4, 'y' => $r2_y), array('x' => $r2_x + 5, 'y' => $r2_y), array('x' => $r2_x + 6, 'y' => $r2_y), array('x' => $r2_x + 7, 'y' => $r2_y));
@@ -156,12 +156,20 @@ class Game {
 
 		$this->outputMap();
 	}
+
+	public function rotate($player_nb, $ship_nb) {
+		if ($player_nb == 1)
+		{
+			$this->player1[$ship_nb]->rotate();
+		}
+		else if ($player_nb == 2)
+		{
+			$this->player2[$ship_nb]->rotate();
+		}
+	}
 }
-
 $game = new Game();
-
 $game->startGame();
 $game->getPlayer(1);
 $game->getPlayer(2);
-
 ?>

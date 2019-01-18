@@ -40,6 +40,15 @@ trait Spaceship {
 		}
 	}
 
+	public function rotate() {
+		foreach($this->_coordinates as $value)
+		{
+			$tmp = $value['x'];
+			$value['x'] = $value['y'] * -1;
+			$value['y'] = $tmp;
+		}
+	}
+
 }
 
 ?>
