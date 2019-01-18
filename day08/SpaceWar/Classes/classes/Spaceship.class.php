@@ -21,6 +21,9 @@ trait Spaceship {
 	// Variables initialized during the Movements phase
 	private $_last_move;
 
+	// Position on the map
+	protected $_coordinates = array();
+
 }
 
 ?>
