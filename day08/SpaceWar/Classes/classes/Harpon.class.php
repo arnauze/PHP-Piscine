@@ -1,5 +1,7 @@
 <?php
 
+require_once('Weapon.class.php');
+
 class Harpon {
 	
 	use Weapon;

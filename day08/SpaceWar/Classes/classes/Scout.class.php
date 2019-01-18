@@ -1,4 +1,6 @@
 <?php
+require_once('Spaceship.class.php');
+
 class Scout {
 
 	use Spaceship;
@@ -6,7 +8,7 @@ class Scout {
 	static $verbose = false;
 
 	// Constructor of the class. Checks if we received all the arguments necessary then set the initial variables
-	public function __construct( array $kwargs ) {
+	public function __construct() {
 		$this->_name = "Scout";
 		$this->_size = 2;
 		$this->_sprite = 'S';
@@ -26,7 +28,7 @@ class Scout {
 			print("Battleship ".$this->_name." died peacefully on the battlefield.".PHP_EOL);
 	}
 
-	public function makeCoord(array $coord ) {
+	public function setCoord(array $coord ) {
 		$this->_coordinates = $coord;
 	}
 
