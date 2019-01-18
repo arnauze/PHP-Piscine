@@ -24,6 +24,22 @@ trait Spaceship {
 	// Position on the map
 	protected $_coordinates = array();
 
+	public function setCoord(array $coord ) {
+		$this->_coordinates = $coord;
+	}
+
+	public function getCoord() {
+		return $this->_coordinates;
+	}
+
+	public function list_weapons() {
+		foreach($this->_weapons as $value)
+		{
+			print("Battleship type: ".$this->_name)."\n";
+			$value->getProperties();
+		}
+	}
+
 }
 
 ?>

@@ -1,11 +1,11 @@
 <?php
 
-require_once('../Classes/classes/Amiral.class.php');
-require_once('../Classes/classes/Harpon.class.php');
-require_once('../Classes/classes/MegaLaser.class.php');
-require_once('../Classes/classes/Scout.class.php');
-require_once('../Classes/classes/Spaceship.class.php');
-require_once('../Classes/classes/Weapon.class.php');
+require_once('Amiral.class.php');
+require_once('Harpon.class.php');
+require_once('MegaLaser.class.php');
+require_once('Scout.class.php');
+require_once('Spaceship.class.php');
+require_once('Weapon.class.php');
 
 define("WIDTH", 75);
 define("HEIGHT", 50);
@@ -13,6 +13,8 @@ define("HEIGHT", 50);
 class Game {
 
 	public $map = array();
+	public $player1 = array();
+	public $player2 = array();
 
 	function rollDice() {
 		return rand(1, 6);
@@ -34,17 +36,17 @@ class Game {
 		$this->addObstacle();
 	}
 
-	function addPlayers($player1, $player2) {
+	function addPlayers() {
 		$p1 = array();
 		$p2 = array();
-		foreach($player1 as $key => $value)
+		foreach($this->player1 as $key => $value)
 		{
 			if (empty($p1))
 				$p1 = array($value->getCoord());
 			else
 				array_push($p1, $value->getCoord());
 		}
-		foreach($player2 as $key => $value)
+		foreach($this->player2 as $key => $value)
 		{
 			if (empty($p2))
 				$p2 = array($value->getCoord());
@@ -79,6 +81,26 @@ class Game {
 			$this->map[$y][$x++] = 1;
 			$this->map[$y][$x++] = 1;
 			$i++;
+		}
+	}
+
+	function getPlayer($x)
+	{
+		if ($x == 1)
+		{
+			print("==> Player1 <==\n");
+			foreach($this->player1 as $elem)
+			{
+				$elem->list_weapons();
+			}
+		}
+		else if ($x == 2)
+		{
+			print("==> Player2 <==\n");
+			foreach($this->player2 as $elem)
+			{
+				$elem->list_weapons();
+			}
 		}
 	}
 
@@ -127,10 +149,10 @@ class Game {
 		$v3->setCoord($coord_v3);
 		$v4->setCoord($coord_v4);
 
-		$p1 = array($v1, $v2);
-		$p2 = array($v3, $v4);
+		$this->player1 = array($v1, $v2);
+		$this->player2 = array($v3, $v4);
 
-		$this->addPlayers($p1, $p2);
+		$this->addPlayers();
 
 		$this->outputMap();
 	}
@@ -139,5 +161,7 @@ class Game {
 $game = new Game();
 
 $game->startGame();
+$game->getPlayer(1);
+$game->getPlayer(2);
 
 ?>

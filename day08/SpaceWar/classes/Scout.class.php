@@ -27,13 +27,5 @@ class Scout {
 		if (self::$verbose)
 			print("Battleship ".$this->_name." died peacefully on the battlefield.".PHP_EOL);
 	}
-
-	public function setCoord(array $coord ) {
-		$this->_coordinates = $coord;
-	}
-
-	public function getCoord() {
-		return $this->_coordinates;
-	}
 }
 ?>
