@@ -23,10 +23,11 @@
 				color = "blue";
 			else if (color == "blue")
 				color = "red";
-			if (parseInt(w) == 420 || parseInt(h) == 420)
+			if (parseInt(w) >= 420 || parseInt(h) >= 420)
 			{
 				w = 200;
 				h = 200;
+				r = 100;
 			}
 			else
 			{
@@ -34,6 +35,8 @@
 				h = parseInt(h) + 10;
 				r = parseInt(r) + 10;
 			}
+			console.log(w);
+			console.log(h);
 			div.setAttribute('style', 'width: ' + w + 'px; height: ' + h + 'px; border-radius: ' + r + 'px; background-color: ' + color + ';');
 		}
 

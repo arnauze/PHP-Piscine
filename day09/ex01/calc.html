@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#calculette {position:relative; height: 50vw; width: 45vw; left:28vw;top:5vw;background-color: red;}
+	</style>
+	<title>Calculator</title>
+	<script type="text/javascript">
+
+		setInterval(function(){alert("Please, use me...")}, 30000);
+
+		function calc() {
+			var form = document.getElementById('form');
+			var a = form.elements[0].value;
+			var b = form.elements[2].value;
+			if (a < 0 || b < 0)
+				alert("Error :(");
+			else if (b == 0 && (form.elements[1].value == 'divided' || form.elements[1].value == 'modulo'))
+			{
+				var message = "It's over 9000!";
+				alert(message);
+				console.log(message);
+			}
+			else
+			{
+				if (form.elements[1].value == 'plus')
+					var result = parseInt(a) + parseInt(b);
+				if (form.elements[1].value == 'minus')
+					var result = parseInt(a) - parseInt(b);
+				if (form.elements[1].value == 'time')
+					var result = parseInt(a) * parseInt(b);
+				if (form.elements[1].value == 'divided')
+					var result = parseInt(a) / parseInt(b);
+				if (form.elements[1].value == 'modulo')
+					var result = parseInt(a) % parseInt(b);
+				alert(result);
+				console.log(result);
+			}
+			return ;
+		}
+	</script>
+</head>
+<body>
+	<div id="calculette">
+		<br><center><h1>Calculator</h1></center>
+		<center>
+			<form id = "form" onsubmit="calc();">
+				<input type="text" name="number1">
+				<select>
+					<option value="plus">+</option>
+					<option value="minus">-</option>
+					<option value="time">*</option>
+					<option value="divided">/</option>
+					<option value="modulo">%</option>
+				</select>
+				<input type="text" name="number2"><br><br>
+				<center>
+					<input type="submit" name="submit" value="Try me!">
+				</center>
+			</form>	
+		</center>
+	</div>
+</body>
+</html>
