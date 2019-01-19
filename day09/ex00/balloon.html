@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ballon</title>
+	<style type="text/css">
+		#balloon {
+			width: 200px;
+			height: 200px;
+			border-radius: 100px;
+			background-color: red;
+		}
+	</style>
+	<script type="text/javascript">
+		function growBalloon() {
+			var div = document.getElementById("balloon");
+			var w = div.style.width.substring(0, div.style.width.length - 2);
+			var h = div.style.height.substring(0, div.style.height.length - 2);
+			var r = div.style.borderRadius.substring(0, div.style.height.length - 2);
+			var color = div.style.backgroundColor;
+			if (color == "red")
+				color = "green";
+			else if (color == "green")
+				color = "blue";
+			else if (color == "blue")
+				color = "red";
+			if (parseInt(w) == 420 || parseInt(h) == 420)
+			{
+				w = 200;
+				h = 200;
+			}
+			else
+			{
+				w = parseInt(w) + 10;
+				h = parseInt(h) + 10;
+				r = parseInt(r) + 10;
+			}
+			div.setAttribute('style', 'width: ' + w + 'px; height: ' + h + 'px; border-radius: ' + r + 'px; background-color: ' + color + ';');
+		}
+
+		function decreaseBalloon() {
+			var div = document.getElementById("balloon");
+			var w = div.style.width.substring(0, div.style.width.length - 2);
+			var h = div.style.height.substring(0, div.style.height.length - 2);
+			var r = div.style.borderRadius.substring(0, div.style.height.length - 2);
+			var color = div.style.backgroundColor;
+			if (color == "red")
+				color = "blue";
+			else if (color == "green")
+				color = "red";
+			else if (color == "blue")
+				color = "green";
+			if (parseInt(w) > 200 && parseInt(h) > 200)
+			{
+				w = parseInt(w) - 5;
+				h = parseInt(h) - 5;
+				r = parseInt(r) - 5;
+			}
+			div.setAttribute('style', 'width: ' + w + 'px; height: ' + h + 'px; border-radius: ' + r + 'px; background-color: ' + color + ';');
+		}
+	</script>
+</head>
+<body>
+	<div id="balloon" style="width: 200px;height: 200px;border-radius: 100px;background-color: red;" onclick="growBalloon();" onmouseleave="decreaseBalloon();">
+		
+	</div>
+</body>
+</html>
