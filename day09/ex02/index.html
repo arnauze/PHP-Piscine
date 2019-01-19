@@ -1,12 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<style type="text/css">
+		#new {
+			width: 10vw;
+			height: 3vw;
+			background-color: DarkSlateGray;
+			border: none;
+		}
+
+		#ft_list {
+			width: 75vw;
+			height: 75vw;
+			background-color: SlateGray;
+		}
+
+		#new_div {
+			width: 50vw;
+			height: 5vw;
+			background-color: gray;
+			margin-top: 1vw;
+			font-size: 3vw;
+		}
+	</style>
 	<title>To do list</title>
 	<script src="todo.js"></script>
 </head>
 <body>
-	<div id="ft_list">
-		<button id="new" onclick="newItem();">New</button>
-	</div>
+	<center>
+		<div id="ft_list">
+			<center>
+				<h1>To do list:</h1><br>
+				<button id="new" onclick="newItem();">New</button>
+			</center>
+		</div>
+	</center>
 </body>
 </html>
