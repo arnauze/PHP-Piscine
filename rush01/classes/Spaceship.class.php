@@ -23,18 +23,40 @@ trait Spaceship {
 
 	// Position on the map
 	protected $_coordinates = array();
-	protected $_direction = array('left' => 0, 'up' => 0, 'right' => 0,  'down' => 0);
+	protected $_direction = array('left' => 1, 'up' => 0, 'right' => 0,  'down' => 0);
 
 	// Will use that to make a ship die in battle
 	public $activated = true;
 
 	public function setCoord(array $coord ) {
 		$this->_coordinates = $coord;
-		$this->_direction['left'] = 1;
 	}
 
 	public function getCoord() {
 		return array('coord' => $this->_coordinates, 'direction' => $this->_direction);
+	}
+
+	private function _changeDirection() {
+		if ($this->_direction['left'] == 1)
+		{
+			$this->_direction['left'] = 0;
+			$this->_direction['up'] = 1;
+		}
+		else if ($this->_direction['up'] == 1)
+		{
+			$this->_direction['up'] = 0;
+			$this->_direction['right'] = 1;
+		}
+		else if ($this->_direction['right'] == 1)
+		{
+			$this->_direction['right'] = 0;
+			$this->_direction['down'] = 1;
+		}
+		else if ($this->_direction['down'] == 1)
+		{
+			$this->_direction['down'] = 0;
+			$this->_direction['left'] = 1;
+		}
 	}
 
 	public function getSprite() {
@@ -94,26 +116,38 @@ trait Spaceship {
 		$max_x = $this->getMaxX();
 		$min_y = $this->getMinY();
 		$max_y = $this->getMaxY();
-		$i = $min_x;
-		$ib = 0;
-		$j = $min_y;
+		$i = 0;
 		$coord = array();
-		if ($min_y == $max_y)
+		if ($this->getCoord()['direction']['left'] == 1)
 		{
-			while ($i <= $max_x)
+			while ($i <= ($max_x - $min_x))
 			{
-				array_push($coord, array('x' => $min_x + $n + $ib, 'y' => $min_y));
+				array_push($coord, array('x' => $min_x - $n + $i, 'y' => $min_y));
 				$i++;
-				$ib++;
 			}
 		}
-		else if ($min_x == $max_x)
+		else if ($this->getCoord()['direction']['right'] == 1)
 		{
-			while ($j <= $max_y)
+			while ($i <= ($max_x - $min_x))
 			{
-				array_push($coord, array('x' => $min_x, 'y' => $min_y + $n + $ib));
-				$j++;
-				$ib++;
+				array_push($coord, array('x' => $min_x + $n + $i, 'y' => $min_y));
+				$i++;
+			}
+		}
+		else if ($this->getCoord()['direction']['up'] == 1)
+		{
+			while ($i <= ($max_y - $min_y))
+			{
+				array_push($coord, array('x' => $min_x, 'y' => $min_y - $n + $i));
+				$i++;
+			}
+		}
+		else if ($this->getCoord()['direction']['down'] == 1)
+		{
+			while ($i <= ($max_y - $min_y))
+			{
+				array_push($coord, array('x' => $min_x, 'y' => $min_y + $n + $i));
+				$i++;
 			}
 		}
 		$this->setCoord($coord);
@@ -169,11 +203,14 @@ trait Spaceship {
 			}
 		}
 
+		$this->_changeDirection();
 		$this->setCoord($coord);
 	}
 
 	public function inRange($map) {
-		return $this->_weapons[0]->inRange($map, $this->getCoord());
+		if ($this->_weapons[0]->inRange($map, $this->getCoord()))
+			return true;
+		return false;
 	}
 
 }

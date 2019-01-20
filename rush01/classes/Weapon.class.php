@@ -27,57 +27,89 @@ trait Weapon {
 				$max_x = $key['x'];
 			if ($key['x'] < $min_x)
 				$min_x = $key['x'];
-		}
-		foreach($coord['coord'] as $key)
-		{
 			if ($key['y'] > $max_y)
 				$max_y = $key['y'];
-			if ($key['y'] > $max_y)
-				$max_y = $key['y'];
+			if ($key['y'] < $min_y)
+				$min_y = $key['y'];
 		}
 		if ($this instanceof Harpon)
 		{
-			if ($coord['direction'] == 'right')
+			if ($coord['direction']['right'] == 1)
 			{
 				while ($i < $this->_long_r)
 				{
-					if ($map[$max_x + $i][$min_y] != 0 && $map[$max_x + $i][$min_y] != 1)
+					if ($map[$min_y][$max_x + $i] != 0 && $map[$min_y][$max_x + $i] != 1)
 						return true;
 					$i++;
 				}
 			}
-			else if ($coord['direction'] == 'up')
+			else if ($coord['direction']['up'] == 1)
 			{
 				while ($i < $this->_long_r)
 				{
-					if ($map[$max_x][$min_y - $i] != 0 && $map[$max_x][$min_y - $i] != 1)
+					if ($map[$min_y - $i][$max_x] != 0 && $map[$min_y - $i][$max_x] != 1)
 						return true;
 					$i++;
 				}
 			}
-			else if ($coord['direction'] == 'left')
+			else if ($coord['direction']['left'] == 1)
 			{
 				while ($i < $this->_long_r)
 				{
-					if ($map[$min_x - $i][$min_y] != 0 && $map[$min_x - $i][$min_y] != 1)
+					if ($map[$min_y][$min_x - $i] != 0 && $map[$min_y][$min_x - $i] != 1)
 						return true;
 					$i++;
 				}
 			}
-			else if ($coord['direction'] == 'up')
+			else if ($coord['direction']['down'] == 1)
 			{
 				while ($i < $this->_long_r)
 				{
-					if ($map[$max_x][$max_y + $i] != 0 && $map[$max_x + $i][$max_y + $i] != 1)
+					if ($map[$max_y + $i][$max_x] != 0 && $map[$max_y + $i][$max_x] != 1)
 						return true;
 					$i++;
 				}
 			}
 		}
-		// else if ($this instanceof MegaLaser)
-		// {
-		//		I need to add that one
-		// }
+		else if ($this instanceof MegaLaser)
+		{
+			if ($coord['direction']['right'] == 1)
+			{
+				while ($i < $this->_long_r)
+				{
+					if ($map[$min_y - $i][$max_x] != 0)
+						return true;
+					$i++;
+				}
+			}
+			else if ($coord['direction']['up'] == 1)
+			{
+				while ($i < $this->_long_r)
+				{
+					if ($map[$min_y - $i][$max_x] != 0)
+						return true;
+					$i++;
+				}
+			}
+			else if ($coord['direction']['left'] == 1)
+			{
+				while ($i < $this->_long_r)
+				{
+					if ($map[$min_y][$min_x - $i] != 0)
+						return true;
+					$i++;
+				}
+			}
+			else if ($coord['direction']['down'] == 1)
+			{
+				while ($i < $this->_long_r)
+				{
+					if ($map[$max_y + $i][$max_x] != 0)
+						return true;
+					$i++;
+				}
+			}
+		}
 		return false;
 	}
 }

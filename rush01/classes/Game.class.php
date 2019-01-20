@@ -226,11 +226,13 @@ class Game {
 	public function inRange($player_nb, $ship_nb) {
 		if ($player_nb == 1)
 		{
-			$this->player1[$ship_nb - 1]->inRange($this->map);
+			if ($this->player1[$ship_nb - 1]->inRange($this->map))
+				return true;
 		}
 		else if ($player_nb == 2)
 		{
-			$this->player2[$ship_nb - 1]->inRange($this->map);
+			if ($this->player2[$ship_nb - 1]->inRange($this->map))
+				return true;
 		}
 	}
 
@@ -242,19 +244,14 @@ $game->rotate(1, 2);
 $game->rotate(2, 1);
 $game->rotate(2, 2);
 $game->outputMap();
-$game->rotate(1, 1);
-$game->rotate(1, 2);
-$game->rotate(2, 1);
-$game->rotate(2, 2);
-$game->outputMap();
 $game->move(1, 1, 10);
 $game->move(1, 2, 10);
-$game->move(2, 1, -10);
-$game->move(2, 2, -10);
+$game->move(2, 1, 10);
+$game->move(2, 2, 10);
 $game->outputMap();
 
-if ($game->inRange(1, 1))
-	print("Joueur 1, Battleship 1 ready to fire!\n");
+if ($game->inRange(2, 1))
+	print("Joueur 2, Battleship 1 ready to fire!\n");
 else
-	print("Joueur 1, Battleship 1 cannot fire!\n");
+	print("Joueur 2, Battleship 1 cannot fire!\n");
 ?>
