@@ -239,19 +239,25 @@ class Game {
 }
 $game = new Game();
 $game->startGame();
-$game->rotate(1, 1);
-$game->rotate(1, 2);
-$game->rotate(2, 1);
-$game->rotate(2, 2);
-$game->outputMap();
-$game->move(1, 1, 10);
-$game->move(1, 2, 10);
-$game->move(2, 1, 10);
-$game->move(2, 2, 10);
-$game->outputMap();
+
+if ($game->inRange(1, 1))
+	print("Joueur 1, Battleship 1 ready to fire!\n");
+else
+	print("Joueur 1, Battleship 1 cannot fire!\n");
+
+if ($game->inRange(1, 2))
+	print("Joueur 1, Battleship 2 ready to fire!\n");
+else
+	print("Joueur 1, Battleship 2 cannot fire!\n");
 
 if ($game->inRange(2, 1))
 	print("Joueur 2, Battleship 1 ready to fire!\n");
 else
 	print("Joueur 2, Battleship 1 cannot fire!\n");
+
+if ($game->inRange(2, 2))
+	print("Joueur 2, Battleship 2 ready to fire!\n");
+else
+	print("Joueur 2, Battleship 2 cannot fire!\n");
+
 ?>

@@ -38,46 +38,7 @@ trait Weapon {
 			{
 				while ($i < $this->_long_r)
 				{
-					if ($map[$min_y][$max_x + $i] != 0 && $map[$min_y][$max_x + $i] != 1)
-						return true;
-					$i++;
-				}
-			}
-			else if ($coord['direction']['up'] == 1)
-			{
-				while ($i < $this->_long_r)
-				{
-					if ($map[$min_y - $i][$max_x] != 0 && $map[$min_y - $i][$max_x] != 1)
-						return true;
-					$i++;
-				}
-			}
-			else if ($coord['direction']['left'] == 1)
-			{
-				while ($i < $this->_long_r)
-				{
-					if ($map[$min_y][$min_x - $i] != 0 && $map[$min_y][$min_x - $i] != 1)
-						return true;
-					$i++;
-				}
-			}
-			else if ($coord['direction']['down'] == 1)
-			{
-				while ($i < $this->_long_r)
-				{
-					if ($map[$max_y + $i][$max_x] != 0 && $map[$max_y + $i][$max_x] != 1)
-						return true;
-					$i++;
-				}
-			}
-		}
-		else if ($this instanceof MegaLaser)
-		{
-			if ($coord['direction']['right'] == 1)
-			{
-				while ($i < $this->_long_r)
-				{
-					if ($map[$min_y - $i][$max_x] != 0)
+					if ($map[$min_y][$max_x + $i] != 0)
 						return true;
 					$i++;
 				}
@@ -106,6 +67,65 @@ trait Weapon {
 				{
 					if ($map[$max_y + $i][$max_x] != 0)
 						return true;
+					$i++;
+				}
+			}
+		}
+		else if ($this instanceof MegaLaser)
+		{
+			if ($coord['direction']['right'] == 1)
+			{
+				while ($i < $this->_long_r)
+				{
+					$j = $min_x;
+					while ($j <= $max_x)
+					{
+						if ($map[$min_y - $i][$j] != 0)
+							return true;
+						$j++;
+					}
+					$i++;
+				}
+			}
+			else if ($coord['direction']['up'] == 1)
+			{
+				while ($i < $this->_long_r)
+				{
+					$j = $min_y;
+					while ($j <= $max_y)
+					{
+						if ($map[$j][$max_x - $i] != 0)
+							return true;
+						$j++;
+					}
+					$i++;
+				}
+			}
+			else if ($coord['direction']['left'] == 1)
+			{
+				while ($i < $this->_long_r)
+				{
+					$j = $min_x;
+					while ($j <= $max_x)
+					{
+						if ($map[$min_y + $i][$j] != 0)
+							return true;
+						$j++;
+					}
+					$i++;
+				}
+			}
+			else if ($coord['direction']['down'] == 1)
+			{
+				while ($i < $this->_long_r)
+				{
+					$j = $min_y;
+					while ($j <= $max_y)
+					{
+						if ($map[$j][$max_x + $i] != 0)
+							return true;
+						$j++;
+					}
 					$i++;
 				}
 			}
