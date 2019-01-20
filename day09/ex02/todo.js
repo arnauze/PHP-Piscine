@@ -63,6 +63,7 @@ function getCookie(name) {
 		{
 			var tmp = cookie.substring(name.length + 1, cookie.length);
 			var l = tmp.split(",");
+			console.log(l[0]);
 			return l[0];
 		}
 		i++;
