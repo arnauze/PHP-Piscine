@@ -42,16 +42,16 @@ class Game {
 		foreach($this->player1 as $key => $value)
 		{
 			if (empty($p1))
-				$p1 = array($value->getCoord());
+				$p1 = array($value->getCoord()['coord']);
 			else
-				array_push($p1, $value->getCoord());
+				array_push($p1, $value->getCoord()['coord']);
 		}
 		foreach($this->player2 as $key => $value)
 		{
 			if (empty($p2))
-				$p2 = array($value->getCoord());
+				$p2 = array($value->getCoord()['coord']);
 			else
-				array_push($p2, $value->getCoord());
+				array_push($p2, $value->getCoord()['coord']);
 		}
 		foreach($p1 as $key => $value)
 		{
@@ -75,16 +75,16 @@ class Game {
 		foreach($this->player1 as $key => $value)
 		{
 			if (empty($p1))
-				$p1 = array($value->getCoord());
+				$p1 = array($value->getCoord()['coord']);
 			else
-				array_push($p1, $value->getCoord());
+				array_push($p1, $value->getCoord()['coord']);
 		}
 		foreach($this->player2 as $key => $value)
 		{
 			if (empty($p2))
-				$p2 = array($value->getCoord());
+				$p2 = array($value->getCoord()['coord']);
 			else
-				array_push($p2, $value->getCoord());
+				array_push($p2, $value->getCoord()['coord']);
 		}
 		foreach($p1 as $key => $value)
 		{
@@ -203,6 +203,20 @@ class Game {
 		}
 		$this->addPlayers();
 	}
+
+	public function move($player_nb, $ship_nb, $n) {
+		$this->removePlayers();
+		if ($player_nb == 1)
+		{
+			$this->player1[$ship_nb - 1]->move($n);
+		}
+		else if ($player_nb == 2)
+		{
+			$this->player2[$ship_nb - 1]->move($n);
+		}
+		$this->addPlayers();
+	}
+
 }
 $game = new Game();
 $game->startGame();
@@ -215,5 +229,10 @@ $game->rotate(1, 1);
 $game->rotate(1, 2);
 $game->rotate(2, 1);
 $game->rotate(2, 2);
+$game->outputMap();
+$game->move(1, 1, 10);
+$game->move(1, 2, 10);
+$game->move(2, 1, -10);
+$game->move(2, 2, -10);
 $game->outputMap();
 ?>

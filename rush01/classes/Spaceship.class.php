@@ -23,13 +23,15 @@ trait Spaceship {
 
 	// Position on the map
 	protected $_coordinates = array();
+	protected $_direction = array('left' => 0, 'up' => 0, 'right' => 0,  'down' => 0);
 
 	public function setCoord(array $coord ) {
 		$this->_coordinates = $coord;
+		$this->_direction['left'] = 1;
 	}
 
 	public function getCoord() {
-		return $this->_coordinates;
+		return array('coord' => $this->_coordinates, 'direction' => $this->_direction);
 	}
 
 	public function list_weapons() {
@@ -81,8 +83,33 @@ trait Spaceship {
 	}
 
 	public function move($n) {
-		$coordinates = $this->getCoord();
-		$new_coord = array();
+		$min_x = $this->getMinX();
+		$max_x = $this->getMaxX();
+		$min_y = $this->getMinY();
+		$max_y = $this->getMaxY();
+		$i = $min_x;
+		$ib = 0;
+		$j = $min_y;
+		$coord = array();
+		if ($min_y == $max_y)
+		{
+			while ($i <= $max_x)
+			{
+				array_push($coord, array('x' => $min_x + $n + $ib, 'y' => $min_y));
+				$i++;
+				$ib++;
+			}
+		}
+		else if ($min_x == $max_x)
+		{
+			while ($j <= $max_y)
+			{
+				array_push($coord, array('x' => $min_x, 'y' => $min_y + $n + $ib));
+				$j++;
+				$ib++;
+			}
+		}
+		$this->setCoord($coord);
 	}
 
 	public function rotate() {
