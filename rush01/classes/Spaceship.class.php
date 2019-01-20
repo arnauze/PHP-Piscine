@@ -25,6 +25,9 @@ trait Spaceship {
 	protected $_coordinates = array();
 	protected $_direction = array('left' => 0, 'up' => 0, 'right' => 0,  'down' => 0);
 
+	// Will use that to make a ship die in battle
+	public $activated = true;
+
 	public function setCoord(array $coord ) {
 		$this->_coordinates = $coord;
 		$this->_direction['left'] = 1;
@@ -32,6 +35,10 @@ trait Spaceship {
 
 	public function getCoord() {
 		return array('coord' => $this->_coordinates, 'direction' => $this->_direction);
+	}
+
+	public function getSprite() {
+		return $this->_sprite;
 	}
 
 	public function list_weapons() {
@@ -163,6 +170,10 @@ trait Spaceship {
 		}
 
 		$this->setCoord($coord);
+	}
+
+	public function inRange($map) {
+		return $this->_weapons[0]->inRange($map, $this->getCoord());
 	}
 
 }

@@ -39,12 +39,15 @@ class Game {
 	function addPlayers() {
 		$p1 = array();
 		$p2 = array();
+		$sprite = array();
+		$i = 0;
 		foreach($this->player1 as $key => $value)
 		{
 			if (empty($p1))
 				$p1 = array($value->getCoord()['coord']);
 			else
 				array_push($p1, $value->getCoord()['coord']);
+			array_push($sprite, $value->getSprite());
 		}
 		foreach($this->player2 as $key => $value)
 		{
@@ -52,20 +55,23 @@ class Game {
 				$p2 = array($value->getCoord()['coord']);
 			else
 				array_push($p2, $value->getCoord()['coord']);
+			array_push($sprite, $value->getSprite());
 		}
 		foreach($p1 as $key => $value)
 		{
 			foreach($value as $k => $val)
 			{
-				$this->map[$val['y']][$val['x']] = ' ';
+				$this->map[$val['y']][$val['x']] = $sprite[$i];
 			}
+			$i++;
 		}
 		foreach($p2 as $key => $value)
 		{
 			foreach($value as $k => $val)
 			{
-				$this->map[$val['y']][$val['x']] = '*';
+				$this->map[$val['y']][$val['x']] = $sprite[$i];
 			}
+			$i++;
 		}
 	}
 
@@ -217,6 +223,17 @@ class Game {
 		$this->addPlayers();
 	}
 
+	public function inRange($player_nb, $ship_nb) {
+		if ($player_nb == 1)
+		{
+			$this->player1[$ship_nb - 1]->inRange($this->map);
+		}
+		else if ($player_nb == 2)
+		{
+			$this->player2[$ship_nb - 1]->inRange($this->map);
+		}
+	}
+
 }
 $game = new Game();
 $game->startGame();
@@ -235,4 +252,9 @@ $game->move(1, 2, 10);
 $game->move(2, 1, -10);
 $game->move(2, 2, -10);
 $game->outputMap();
+
+if ($game->inRange(1, 1))
+	print("Joueur 1, Battleship 1 ready to fire!\n");
+else
+	print("Joueur 1, Battleship 1 cannot fire!\n");
 ?>
